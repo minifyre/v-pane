@@ -1,0 +1,13 @@
+{
+	"name": "v-pane",
+	"description": "Re-sizable window panes meant to take the pain out of data synchronization.",
+	"homepage": "https://github.com/minifyre/v-pane",
+	"license": "MIT",
+	"version": "0.5.0",
+	"dependencies": {
+		"silo": "minifyre/silo"
+	},
+	"devDependencies": {
+		"cherub": "minifyre/cherub"
+	}
+}
