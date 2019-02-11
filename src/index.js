@@ -7,18 +7,10 @@ const {config,util,logic,output,input}=silo
 export default silo(async function(initialState)
 {
 	customElements.define('v-pane',silo.element)
-
-
-	//@todo these should be in silo.customElement constructor... 
-	const
-	state=logic(initialState),
-	render=truth.compile(({state})=>v.render(document.body,state,output))
-
-	truth(state,render)
 })
 silo.element=class extends silo.customElement
 {
-	constructor(state={})
+	constructor(state)
 	{
 		super(state,silo)
 	}
