@@ -1,5 +1,13 @@
 config.state=
 {
-	file:{},
-	view:{type:'custom-element'}
+	file:
+	{
+		files:{},//@todo move this out into a higher state?
+		panes:{},
+		views:{}
+	},
+	view:
+	{
+		type:'pane'
+	}
 }
