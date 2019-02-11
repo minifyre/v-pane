@@ -1,4 +1,11 @@
-output.render=function(state)
+output.render=function({state})
 {
-	return []
+	return Object.values(state.file.panes)
+	.filter(x=>!!x)
+	.map(function(pane)
+	{
+		const style=util.box2style(pane)
+
+		return v('.pane',{style})
+	})
 }
