@@ -8,6 +8,11 @@ config.state=
 	},
 	view:
 	{
+		popup:
+		{
+			x:-1,
+			y:-1
+		},
 		type:'pane'
 	}
 }

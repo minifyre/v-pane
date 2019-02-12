@@ -4,5 +4,10 @@ input.rightClick=function(sandbox,evt)
 
 	evt.preventDefault()
 
-	
+	const
+	box=sandbox.getBoundingClientRect(),
+	{popup}=sandbox.state.view.popup
+
+	popup.x=(evt.pageX-box.x)/box.width
+	popup.y=(evt.pageY-box.y)/box.height
 }
