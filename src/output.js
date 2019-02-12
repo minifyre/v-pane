@@ -1,6 +1,6 @@
-output.render=function({state})
+output.render=function(el)
 {
-	const contextmenu=curry(input.rightClick,state)
+	const contextmenu=curry(input.rightClick,el)
 
 	return [v('style',{},`
 	.pane
@@ -14,7 +14,7 @@ output.render=function({state})
 		height:100%;
 		width:100%;
 	}`)]
-	.concat(Object.values(state.file.panes)
+	.concat(Object.values(el.state.file.panes)
 	.filter(x=>!!x)
 	.map(function(pane)
 	{

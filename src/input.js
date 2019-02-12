@@ -1,4 +1,4 @@
-input.rightClick=function(state,evt)
+input.rightClick=function(sandbox,evt)
 {
 	if(!evt.target.matches('.pane')) return
 
