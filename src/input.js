@@ -6,56 +6,24 @@ input.btnSplitPane=function(sandbox,{target})//insert new pane
 		.split(',')
 		.map(int=>parseInt(int)),
 	oldPane=sandbox.state.file.data.panes[paneId]
-	// newPane=util.mk({x:0,y:0,width:100,height:100})
 
-	// state.file.data.panes[pane.id]=pane
+	let {x,y,width,height}=oldPane
 
 	if(h)
 	{
-		if(h<0)
-		{
-			let
-			{x,y,height}=oldPane,
-			width=oldPane.width/=2
+		width=oldPane.width/=2
 
-			oldPane.x+=width
-
-			logic.addPane(sandbox.state,{x,y,width,height})
-		}
-		else
-		{
-			let
-			{x,y,height}=oldPane,
-			width=oldPane.width/=2
-
-			x+=width
-
-			logic.addPane(sandbox.state,{x,y,width,height})
-		}
+		if(h<0) oldPane.x+=width
+		else x+=width
 	}
 	else
 	{
-		if(v<0)
-		{
-			let
-			{x,y,width}=oldPane,
-			height=oldPane.height/=2
+		height=oldPane.height/=2
 
-			oldPane.y+=height
-
-			logic.addPane(sandbox.state,{x,y,width,height})
-		}
-		else
-		{
-			let
-			{x,y,width}=oldPane,
-			height=oldPane.height/=2
-
-			y+=height
-
-			logic.addPane(sandbox.state,{x,y,width,height})
-		}
+		if(v<0) oldPane.y+=height
+		else y+=height
 	}
+	logic.addPane(sandbox.state,{x,y,width,height})
 }
 input.closePopup=function(sandbox)
 {
