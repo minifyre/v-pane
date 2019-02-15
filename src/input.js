@@ -1,7 +1,10 @@
 input.closePopup=function(sandbox)
 {
-	sandbox.state.view.popup.x=-1
-	sandbox.state.view.popup.y=-1
+	const {popup}=sandbox.state.view
+
+	popup.pane=null
+	popup.x=-1
+	popup.y=-1
 }
 input.rightClick=function(sandbox,evt)
 {
@@ -13,6 +16,7 @@ input.rightClick=function(sandbox,evt)
 	box=sandbox.getBoundingClientRect(),
 	{popup}=sandbox.state.view
 
+	popup.pane=evt.target.id
 	popup.x=(evt.pageX-box.x)/box.width*100
 	popup.y=(evt.pageY-box.y)/box.height*100
 }

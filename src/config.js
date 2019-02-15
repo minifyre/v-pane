@@ -10,6 +10,7 @@ config.state=
 	{
 		popup:
 		{
+			pane:null,
 			x:-1,
 			y:-1
 		},

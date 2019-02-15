@@ -1,13 +1,15 @@
 output.popup=function(sandbox)
 {
 	const
-	hide=sandbox.state.view.popup.y<0,
+	{popup}=sandbox.state.view,
+	{pane}=popup,
+	hide=popup.y<0,
 	//y is calculated last, so it will trigger showing the menu @ the proper place
 	click=curry(input.closePopup,sandbox),
 	render=curry(input.renderPopup,sandbox),
 	on={click:curry(input.btnSplitPane,sandbox)}
 
-	return v('dl.popup',{data:{hide},on:{click,render}},
+	return v('dl.popup',{data:{hide,pane},on:{click,render}},
 		v('dt',{},'split/insert new pane:'),
 		v('dd',{},
 			v('button',{data:{split:'-1,0'},on},'left'),
@@ -67,9 +69,11 @@ output.render=function(el)
 		.filter(x=>!!x)
 		.map(function(pane)
 		{
-			const style=util.box2style(pane)
+			const
+			{id}=pane,
+			style=util.box2style(pane)
 	
-			return v('.pane',{style,on:{contextmenu}},v('div'))
+			return v('.pane',{id,style,on:{contextmenu}},v('div'))
 		}),
 		output.popup(el)
 	]
