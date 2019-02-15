@@ -9,7 +9,7 @@ output.popup=function(sandbox)
 	render=curry(input.renderPopup,sandbox),
 	on={click:curry(input.btnSplitPane,sandbox)}
 
-	return v('dl.popup',{data:{hide,pane},on:{click,render}},
+	return v('dl.popup',{data:{hide,pane},on:{click,contextmenu:click,render}},
 		v('dt',{},'split/insert new pane:'),
 		v('dd',{},
 			v('button',{data:{split:'-1,0'},on},'left'),
