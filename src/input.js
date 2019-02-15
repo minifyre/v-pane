@@ -14,11 +14,21 @@ input.btnSplitPane=function(sandbox,{target})//insert new pane
 	{
 		if(h<0)
 		{
-			const
+			let
 			{x,y,height}=oldPane,
 			width=oldPane.width/=2
 
 			oldPane.x+=width
+
+			logic.addPane(sandbox.state,{x,y,width,height})
+		}
+		else
+		{
+			let
+			{x,y,height}=oldPane,
+			width=oldPane.width/=2
+
+			x+=width
 
 			logic.addPane(sandbox.state,{x,y,width,height})
 		}
