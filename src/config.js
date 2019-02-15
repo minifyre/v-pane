@@ -14,6 +14,7 @@ config.state=
 	},
 	view:
 	{
+		dragover:null,
 		popup:
 		{
 			pane:null,

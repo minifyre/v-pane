@@ -16,6 +16,27 @@ input.closePopup=function(sandbox)
 	popup.x=-1
 	popup.y=-1
 }
+input.dragenter=function(sandbox,evt)
+{
+	evt.preventDefault()
+	evt.dataTransfer.setData('text/plain',evt.target.id)
+}
+input.dragleave=function(sandbox,evt)
+{
+	evt.preventDefault()
+	//@todo (does this interfere with another pane setting its value?)
+	sandbox.state.view.dragover=null
+}
+input.dragover=function(sandbox,evt)
+{
+	evt.preventDefault()
+	sandbox.state.view.dragover=evt.target.id
+}
+input.dropFiles=function(sandbox,evt)
+{
+	evt.preventDefault()
+	console.log('dropped files')
+}
 input.rightClick=function(sandbox,evt)
 {
 	if(!evt.target.matches('.pane')) return

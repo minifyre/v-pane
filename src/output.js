@@ -23,7 +23,13 @@ output.popup=function(sandbox)
 }
 output.render=function(el)
 {
-	const contextmenu=curry(input.rightClick,el)
+	const//@todo replace this whole block with Object.entries(input.pane).
+	contextmenu=curry(input.rightClick,el),
+	drop=curry(input.dropFiles,el),
+	dragenter=curry(input.dragenter,el),
+	dragleave=curry(input.dragleave,el),
+	dragover=curry(input.dragover,el),
+	on={contextmenu,dragenter,dragleave,dragover,drop}
 
 	return [
 		v('style',{},config.style),
@@ -33,9 +39,10 @@ output.render=function(el)
 		{
 			const
 			{id}=pane,
-			style=util.box2style(pane)
-	
-			return v('.pane',{id,style,on:{contextmenu}},v('div'))
+			style=util.box2style(pane),
+			data={dragover:el.state.view.dragover===id}
+
+			return v('.pane',{data,draggable:true,id,style,on},v('div'))
 		}),
 		output.popup(el)
 	]
