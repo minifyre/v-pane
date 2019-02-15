@@ -65,7 +65,7 @@ output.render=function(el)
 			z-index:-1;
 		}
 		`),
-		...Object.values(el.state.file.panes)
+		...Object.values(el.state.file.data.panes)
 		.filter(x=>!!x)
 		.map(function(pane)
 		{
