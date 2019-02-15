@@ -3,9 +3,10 @@ output.popup=function(sandbox)
 	const
 	hide=sandbox.state.view.popup.y<0,
 	//y is calculated last, so it will trigger showing the menu @ the proper place
+	click=curry(input.closePopup,sandbox),
 	render=curry(input.renderPopup,sandbox)
 
-	return v('dl.popup',{data:{hide},on:{render}},
+	return v('dl.popup',{data:{hide},on:{click,render}},
 		v('dt',{},'split:'),
 		v('dd',{},
 			v('button',{},'left'),
@@ -36,11 +37,25 @@ output.render=function(el)
 		}
 		.popup
 		{
+			background:#222;
+			color:#fff;
 			margin-block-start:0;
 			margin-block-end:0;
 			margin-inline-start:0;
 			margin-inline-end:0;
 			position:absolute;
+			z-index:1;
+		}
+		.popup::before
+		{
+			content:"";
+			display:block;
+			position:fixed;
+			height:200vh;
+			left:0;
+			top:0;
+			width:200vw;
+			z-index:-1;
 		}
 		.popup[data-hide="true"]
 		{

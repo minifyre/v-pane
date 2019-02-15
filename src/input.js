@@ -1,3 +1,8 @@
+input.closePopup=function(sandbox)
+{
+	sandbox.state.view.popup.x=-1
+	sandbox.state.view.popup.y=-1
+}
 input.rightClick=function(sandbox,evt)
 {
 	if(!evt.target.matches('.pane')) return
