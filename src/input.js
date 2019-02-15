@@ -32,10 +32,21 @@ input.dragover=function(sandbox,evt)
 	evt.preventDefault()
 	sandbox.state.view.dragover=evt.target.id
 }
-input.dropFiles=function(sandbox,evt)
+input.dropFiles=async function(sandbox,evt)
 {
 	evt.preventDefault()
-	console.log('dropped files')
+
+	const
+	items=[...evt.dataTransfer.files],
+	files=await util.asyncMap(items,async function(file)
+	{
+		const
+		{lastModified:modified,name:path,size,type}=file,
+		meta={modified,path,size,type},
+		data=await util.readFile(file)
+
+		return util.assignNested(util.mkFile(),{data,meta})
+	})
 }
 input.rightClick=function(sandbox,evt)
 {
