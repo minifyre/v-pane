@@ -23,3 +23,42 @@ config.state=
 		type:'pane'
 	}
 }
+config.style=
+`.pane
+{
+	box-sizing:border-box;
+	padding:0.5rem;
+	position:absolute;
+}
+.pane div
+{
+	background-color:#fc0;
+	height:100%;
+	width:100%;
+}
+.popup
+{
+	background:#222;
+	color:#fff;
+	margin-block-start:0;
+	margin-block-end:0;
+	margin-inline-start:0;
+	margin-inline-end:0;
+	position:absolute;
+	z-index:1;
+}
+.popup::before
+{
+	content:"";
+	display:block;
+	position:fixed;
+	height:200vh;
+	left:0;
+	top:0;
+	width:200vw;
+	z-index:-1;
+}
+.popup[data-hide="true"]
+{
+	z-index:-1;
+}`
