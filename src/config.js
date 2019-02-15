@@ -31,6 +31,20 @@ config.style=
 	padding:0.5rem;
 	position:absolute;
 }
+	[data-dragover="true"]::after
+	{
+		background-color:#fff3;
+		content:"Drop File(s) Here";
+		display:flex;
+		flex-direction:column;
+		height:100%;
+		justify-content:center;
+		position:absolute;
+		left:0;
+		text-align:center;
+		top:0;
+		width:100%;
+	}
 .pane div
 {
 	background-color:#fc0;
