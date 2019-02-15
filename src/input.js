@@ -35,7 +35,26 @@ input.btnSplitPane=function(sandbox,{target})//insert new pane
 	}
 	else
 	{
+		if(v<0)
+		{
+			let
+			{x,y,width}=oldPane,
+			height=oldPane.height/=2
 
+			oldPane.y+=height
+
+			logic.addPane(sandbox.state,{x,y,width,height})
+		}
+		else
+		{
+			let
+			{x,y,width}=oldPane,
+			height=oldPane.height/=2
+
+			y+=height
+
+			logic.addPane(sandbox.state,{x,y,width,height})
+		}
 	}
 }
 input.closePopup=function(sandbox)
