@@ -1,3 +1,9 @@
+logic.addPane=function(state,paneOpts={})
+{
+	const pane=util.mk({x:0,y:0,width:100,height:100},paneOpts)
+
+	state.file.data.panes[pane.id]=pane
+}
 logic.normalize=function(state)
 {
 	if(Object.keys(state.file.data.panes).length) return state
@@ -6,17 +12,10 @@ logic.normalize=function(state)
 
 	return state
 }
-logic.addPane=function(state,paneOpts={})
-{
-	const pane=util.mk({x:0,y:0,width:100,height:100},paneOpts)
-
-	state.file.data.panes[pane.id]=pane
-}
 logic.splitPaneByDirection=function(state,id,[h,v])
 {
 	const oldPane=state.file.data.panes[id]
 
-	//@todo move everything below into logic
 	let {x,y,width,height}=oldPane
 
 	if(h)
