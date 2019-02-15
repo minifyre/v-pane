@@ -1,3 +1,33 @@
+input.btnSplitPane=function(sandbox,{target})//insert new pane
+{
+	const 
+	paneId=sandbox.state.view.popup.pane,
+	[h,v]=target.getAttribute('data-split')
+		.split(',')
+		.map(int=>parseInt(int)),
+	oldPane=sandbox.state.file.data.panes[paneId]
+	// newPane=util.mk({x:0,y:0,width:100,height:100})
+
+	// state.file.data.panes[pane.id]=pane
+
+	if(h)
+	{
+		if(h<0)
+		{
+			const
+			{x,y,height}=oldPane,
+			width=oldPane.width/=2
+
+			oldPane.x+=width
+
+			logic.addPane(sandbox.state,{x,y,width,height})
+		}
+	}
+	else
+	{
+
+	}
+}
 input.closePopup=function(sandbox)
 {
 	const {popup}=sandbox.state.view
