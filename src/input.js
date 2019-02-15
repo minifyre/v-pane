@@ -13,7 +13,11 @@ input.rightClick=function(sandbox,evt)
 }
 input.renderPopup=function(sandbox,evt)
 {
-	const {x,y}=sandbox.state.view.popup
+	const
+	{x,y}=sandbox.state.view.popup,
+	{height:h,width:w}=evt.target.getBoundingClientRect(),
+	left=x>50?`calc(${x}% - ${w}px)`:x+'%',
+	top=y>50?`calc(${y}% - ${h}px)`:y+'%'
 
-	evt.target.setAttribute('style',`left:${x}%; top:${y}%;`)
+	evt.target.setAttribute('style',`left:${left}; top:${top};`)
 }
