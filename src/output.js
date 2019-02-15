@@ -4,17 +4,18 @@ output.popup=function(sandbox)
 	hide=sandbox.state.view.popup.y<0,
 	//y is calculated last, so it will trigger showing the menu @ the proper place
 	click=curry(input.closePopup,sandbox),
-	render=curry(input.renderPopup,sandbox)
+	render=curry(input.renderPopup,sandbox),
+	on={click:curry(input.btnSplitPane,sandbox)}
 
 	return v('dl.popup',{data:{hide},on:{click,render}},
-		v('dt',{},'split:'),
+		v('dt',{},'split/insert new pane:'),
 		v('dd',{},
-			v('button',{},'left'),
-			v('button',{},'right')
+			v('button',{data:{split:'-1,0'},on},'left'),
+			v('button',{data:{split:'1,0'},on},'right')
 		),
 		v('dd',{},
-			v('button',{},'up'),
-			v('button',{},'down')
+			v('button',{data:{split:'0,-1'},on},'above'),
+			v('button',{data:{split:'0,1'},on},'below')
 		)
 	)
 }
