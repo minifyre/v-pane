@@ -2,7 +2,7 @@ output.popup=function(sandbox)
 {
 	const
 	{popup}=sandbox.state.view,
-	{pane}=popup,
+	{pane}=popup,//@todo this might not be needed anymore
 	hide=popup.y<0,
 	//y is calculated last, so it will trigger showing the menu @ the proper place
 	click=curry(input.closePopup,sandbox),
@@ -31,6 +31,7 @@ output.render=function(el)
 		{
 			box-sizing:border-box;
 			padding:0.5rem;
+			position:absolute;
 		}
 		.pane div
 		{
