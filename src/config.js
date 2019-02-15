@@ -2,12 +2,24 @@ config.state=
 {
 	file:
 	{
-		files:{},//@todo move this out into a higher state?
-		panes:{},
+		cache:{},
+		data:
+		{
+			panes:{}
+		},
+		meta:{},
+		//@todo move tehse into a higher state?
+		files:{},
 		views:{}
 	},
 	view:
 	{
+		popup:
+		{
+			pane:null,
+			x:-1,
+			y:-1
+		},
 		type:'pane'
 	}
 }
