@@ -36,6 +36,10 @@ output.render=function(el)
 		}
 		.popup
 		{
+			margin-block-start:0;
+			margin-block-end:0;
+			margin-inline-start:0;
+			margin-inline-end:0;
 			position:absolute;
 		}
 		.popup[data-hide="true"]
