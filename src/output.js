@@ -42,7 +42,7 @@ output.render=function(el)
 			style=util.box2style(pane),
 			data={dragover:el.state.view.dragover===id}
 
-			return v('.pane',{data,draggable:true,id,style,on},v('div'))
+			return v('.pane',{data,draggable:true,id,style,on},v('tabbed-editor'))
 		}),
 		output.popup(el)
 	]

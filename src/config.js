@@ -45,9 +45,10 @@ config.style=
 		top:0;
 		width:100%;
 	}
-.pane div
+.pane tabbed-editor
 {
 	background-color:#fc0;
+	display:block;
 	height:100%;
 	width:100%;
 }
