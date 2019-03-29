@@ -46,7 +46,8 @@ input.dropFiles=async function(sandbox,evt)
 		data=await util.readFile(file)
 
 		return util.assignNested(util.mkFile(),{data,meta})
-	})
+	}),
+	views=[]//@todo finish by generating views based on pane app type
 }
 input.rightClick=function(sandbox,evt)
 {
