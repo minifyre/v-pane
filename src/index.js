@@ -13,7 +13,7 @@ export default silo(async function(initialState)
 	customElements.define('v-pane',silo.element)
 
 	//setup apps//@todo REPLACE THIS TEMP CODE!!
-	;`checklist,code-editor,code-picker,file-manager,finance-app,
+	;`check-list,code-editor,code-picker,file-manager,finance-app,
 	iframe-viewer,pixel-editor,vector-editor,youtube-player`
 	.replace(/\s/g,'')
 	.split(',')
